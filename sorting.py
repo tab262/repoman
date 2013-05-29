@@ -1,4 +1,4 @@
-debug = False
+debug = True #will print out the splitting and recombing of the sorted sbuarrays
 
 def merge_sort(A):
     if len(A) <= 1: 
