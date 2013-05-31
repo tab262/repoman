@@ -37,6 +37,7 @@ def merge_with_no_sent(A,B):
     i, j = 0, 0
     C = [0]*length
     for k in range(length):
+        #first two control statements check to see if subarrays are 'empty'
         if(i == len(A)):
             C[k:] = B[j:]
             return C
