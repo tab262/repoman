@@ -1,4 +1,4 @@
-debug = True #will print out the splitting and recombing of the sorted subarrays if true
+debug = False #will print out the splitting and recombing of the sorted subarrays if true
 
 def merge_sort(A):
     if len(A) <= 1: 
@@ -10,7 +10,8 @@ def merge_sort(A):
         if debug: print 'Found a left : ', left
         right = merge_sort(A[middle:])
         if debug: print 'Found a right: ', right
-        return merge(left, right)
+        return merge_with_no_sent(left, right)
+         
 #################################################
 def merge(A,B): 
     length = len(A) + len(B)
@@ -31,6 +32,30 @@ def merge(A,B):
     
         
 ###################################################
+def merge_with_no_sent(A,B): 
+    length = len(A) + len(B)
+    i, j = 0, 0
+    C = [0]*length
+    for k in range(length):
+        if(i == len(A)):
+            C[k:] = B[j:]
+            return C
+        if(j == len(B)):
+            C[k:] = A[i:]
+            return C  
+        if (A[i] <= B[j]):
+            C[k] = A[i]
+            i += 1
+        else:
+            C[k] = B[j]
+            j += 1
+    if debug: print 'C: ',C
+    return C      
+    
+    
+        
+###################################################
+
 def insertion_sort(A):
     for j in range(1, len(A)):
         key = A[j]
@@ -63,7 +88,7 @@ if __name__ == '__main__':
     y = [1,6,3,8,5,3,64,8,7,5436,32,542,6,2345,6,2,346,3234]
     print 'Before: ', y, '\nMerging'
     print 'Sorted: ' ,merge_sort(y)
-
+  
     
  
         
