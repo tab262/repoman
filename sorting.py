@@ -12,7 +12,7 @@ def merge_sort(A):
         if debug: print 'Found a right: ', right
         return merge(left, right)
 #################################################
-def merge(A,B): #A is an array, p <= q < r index arrays
+def merge(A,B): 
     length = len(A) + len(B)
     A.append(1000000000)
     B.append(1000000000)
